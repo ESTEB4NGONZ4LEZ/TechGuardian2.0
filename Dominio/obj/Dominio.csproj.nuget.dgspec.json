@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Esteban\\Documents\\Campus\\NetCore\\TechGuardian2.0\\Dominio\\Dominio.csproj": {}
+    "c:\\Users\\Esteban\\Documents\\Campus\\NetCore\\TechGuardian2.0\\Dominio\\Dominio.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Esteban\\Documents\\Campus\\NetCore\\TechGuardian2.0\\Dominio\\Dominio.csproj": {
+    "c:\\Users\\Esteban\\Documents\\Campus\\NetCore\\TechGuardian2.0\\Dominio\\Dominio.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Esteban\\Documents\\Campus\\NetCore\\TechGuardian2.0\\Dominio\\Dominio.csproj",
+        "projectUniqueName": "c:\\Users\\Esteban\\Documents\\Campus\\NetCore\\TechGuardian2.0\\Dominio\\Dominio.csproj",
         "projectName": "Dominio",
-        "projectPath": "C:\\Users\\Esteban\\Documents\\Campus\\NetCore\\TechGuardian2.0\\Dominio\\Dominio.csproj",
+        "projectPath": "c:\\Users\\Esteban\\Documents\\Campus\\NetCore\\TechGuardian2.0\\Dominio\\Dominio.csproj",
         "packagesPath": "C:\\Users\\Esteban\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Esteban\\Documents\\Campus\\NetCore\\TechGuardian2.0\\Dominio\\obj\\",
+        "outputPath": "c:\\Users\\Esteban\\Documents\\Campus\\NetCore\\TechGuardian2.0\\Dominio\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Esteban\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -37,6 +37,20 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
+          "dependencies": {
+            "FluentValidation.AspNetCore": {
+              "target": "Package",
+              "version": "[11.3.0, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.10, )"
+            },
+            "itext7.pdfhtml": {
+              "target": "Package",
+              "version": "[5.0.1, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
