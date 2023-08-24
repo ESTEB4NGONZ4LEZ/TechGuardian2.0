@@ -9,4 +9,5 @@ public class Computador : BaseEntity
     public int Id_lugar { get; set; }
     public Lugar Lugar { get; set; }
     public ICollection<CompoCompu> CompoCompus { get; set; }
+    public ICollection<Insidencia> Insidencias { get; set; }
 }

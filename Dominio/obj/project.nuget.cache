@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "XGRXPkUdyu4e4tCXszxZI44wOkMJiQA/Bgj0USgrkrFKPBoYNzojW8HATYF5AxBVYPWFvqbUG6mLFKfXX95jwA==",
+  "dgSpecHash": "SjgKwIBbLhtxbzTglvCfkxrQh4FX3Z9NP5ZGnkrU7FHmAJFyUWl0qYLaVt13Co5AorqFeP0+vk9vmhnohwj8/w==",
   "success": true,
-  "projectFilePath": "c:\\Users\\Esteban\\Documents\\Campus\\NetCore\\TechGuardian2.0\\Dominio\\Dominio.csproj",
+  "projectFilePath": "C:\\Users\\Esteban\\Documents\\Campus\\NetCore\\TechGuardian2.0\\Dominio\\Dominio.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Esteban\\.nuget\\packages\\fluentvalidation\\11.5.1\\fluentvalidation.11.5.1.nupkg.sha512",
     "C:\\Users\\Esteban\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.3.0\\fluentvalidation.aspnetcore.11.3.0.nupkg.sha512",

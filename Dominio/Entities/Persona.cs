@@ -26,4 +26,5 @@ public class Persona : BaseEntity
     public TipoDocumento TipoDocumento { get; set; }
     public Rol Rol { get; set; }
     public ICollection<Insidencia> Insidencias { get; set; }
+    public ICollection<Direccion> Direcciones { get; set; }
 }

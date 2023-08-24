@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "kfT311cr6Y9NsTccGw6Zng2l+S5wZLQwvhH87D4YAMlSguSTfxiFiqoEezcIO166a1l7V+VlDITVEEx2EZuq7w==",
+  "dgSpecHash": "879xSie7EG0iMzf705HTfybdTi92IAZb7S66ajIxIK29Xq8kf3XOs84nYYj7zl8aPDFaJZYWUHjfKPX2fqjzNA==",
   "success": true,
-  "projectFilePath": "c:\\Users\\Esteban\\Documents\\Campus\\NetCore\\TechGuardian2.0\\Persistencia\\Persistencia.csproj",
+  "projectFilePath": "C:\\Users\\Esteban\\Documents\\Campus\\NetCore\\TechGuardian2.0\\Persistencia\\Persistencia.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Esteban\\.nuget\\packages\\fluentvalidation\\11.5.1\\fluentvalidation.11.5.1.nupkg.sha512",
     "C:\\Users\\Esteban\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.3.0\\fluentvalidation.aspnetcore.11.3.0.nupkg.sha512",
