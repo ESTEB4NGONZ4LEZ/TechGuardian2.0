@@ -12,11 +12,11 @@ public class Insidencia : BaseEntity
     public int Id_computador { get; set; }
     public int Id_categoria { get; set; }
     public int Id_tipo_insidencia { get; set; }
-    public int Id_area { get; set; }
+    public int Id_lugar { get; set; }
     public Estado Estado { get; set; }
     public Persona Persona { get; set; }
     public Computador Computador { get; set; }
     public Categoria Categoria { get; set; }
     public TipoInsidencia TipoInsidencia { get; set; }
-    public Area Area { get; set; }
+    public Lugar Lugar { get; set; }
 }

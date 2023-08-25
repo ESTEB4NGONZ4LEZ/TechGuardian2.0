@@ -10,4 +10,5 @@ public class Lugar : BaseEntity
     public Area Area { get; set; }
     public ICollection<Computador> Computadores { get; set; }
     public ICollection<Persona> Personas { get; set; }
+    public ICollection<Insidencia> Insidencias { get; set; }
 }
