@@ -464,17 +464,11 @@ namespace Persistencia.Data.Migrations
                     Id_computador = table.Column<int>(type: "int", nullable: false),
                     Id_categoria = table.Column<int>(type: "int", nullable: false),
                     Id_tipo_insidencia = table.Column<int>(type: "int", nullable: false),
-                    Id_area = table.Column<int>(type: "int", nullable: false)
+                    Id_lugar = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_insidencia", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_insidencia_area_Id_area",
-                        column: x => x.Id_area,
-                        principalTable: "area",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_insidencia_categoria_Id_categoria",
                         column: x => x.Id_categoria,
@@ -491,6 +485,12 @@ namespace Persistencia.Data.Migrations
                         name: "FK_insidencia_estado_Id_estado",
                         column: x => x.Id_estado,
                         principalTable: "estado",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_insidencia_lugar_Id_lugar",
+                        column: x => x.Id_lugar,
+                        principalTable: "lugar",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
@@ -534,11 +534,6 @@ namespace Persistencia.Data.Migrations
                 column: "Id_persona");
 
             migrationBuilder.CreateIndex(
-                name: "IX_insidencia_Id_area",
-                table: "insidencia",
-                column: "Id_area");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_insidencia_Id_categoria",
                 table: "insidencia",
                 column: "Id_categoria");
@@ -552,6 +547,11 @@ namespace Persistencia.Data.Migrations
                 name: "IX_insidencia_Id_estado",
                 table: "insidencia",
                 column: "Id_estado");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_insidencia_Id_lugar",
+                table: "insidencia",
+                column: "Id_lugar");
 
             migrationBuilder.CreateIndex(
                 name: "IX_insidencia_Id_persona",

@@ -305,9 +305,6 @@ namespace Persistencia.Data.Migrations
                     b.Property<DateOnly>("Fecha")
                         .HasColumnType("date");
 
-                    b.Property<int>("Id_area")
-                        .HasColumnType("int");
-
                     b.Property<int>("Id_categoria")
                         .HasColumnType("int");
 
@@ -315,6 +312,9 @@ namespace Persistencia.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<int>("Id_estado")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Id_lugar")
                         .HasColumnType("int");
 
                     b.Property<int>("Id_persona")
@@ -325,13 +325,13 @@ namespace Persistencia.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("Id_area");
-
                     b.HasIndex("Id_categoria");
 
                     b.HasIndex("Id_computador");
 
                     b.HasIndex("Id_estado");
+
+                    b.HasIndex("Id_lugar");
 
                     b.HasIndex("Id_persona");
 
@@ -616,12 +616,6 @@ namespace Persistencia.Data.Migrations
 
             modelBuilder.Entity("Dominio.Entities.Insidencia", b =>
                 {
-                    b.HasOne("Dominio.Entities.Area", "Area")
-                        .WithMany("Insidencias")
-                        .HasForeignKey("Id_area")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Dominio.Entities.Categoria", "Categoria")
                         .WithMany("Insicencias")
                         .HasForeignKey("Id_categoria")
@@ -640,6 +634,12 @@ namespace Persistencia.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Dominio.Entities.Lugar", "Lugar")
+                        .WithMany("Insidencias")
+                        .HasForeignKey("Id_lugar")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Dominio.Entities.Persona", "Persona")
                         .WithMany("Insidencias")
                         .HasForeignKey("Id_persona")
@@ -652,13 +652,13 @@ namespace Persistencia.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Area");
-
                     b.Navigation("Categoria");
 
                     b.Navigation("Computador");
 
                     b.Navigation("Estado");
+
+                    b.Navigation("Lugar");
 
                     b.Navigation("Persona");
 
@@ -745,8 +745,6 @@ namespace Persistencia.Data.Migrations
 
             modelBuilder.Entity("Dominio.Entities.Area", b =>
                 {
-                    b.Navigation("Insidencias");
-
                     b.Navigation("Lugares");
                 });
 
@@ -795,6 +793,8 @@ namespace Persistencia.Data.Migrations
             modelBuilder.Entity("Dominio.Entities.Lugar", b =>
                 {
                     b.Navigation("Computadores");
+
+                    b.Navigation("Insidencias");
 
                     b.Navigation("Personas");
                 });

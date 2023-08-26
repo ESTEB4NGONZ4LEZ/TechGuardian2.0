@@ -44,9 +44,9 @@ public class InsidenciaConfig : IEntityTypeConfiguration<Insidencia>
         .HasForeignKey(i => i.Id_tipo_insidencia)
         .IsRequired();
 
-        builder.HasOne(a => a.Area)
+        builder.HasOne(a => a.Lugar)
         .WithMany(e => e.Insidencias)
-        .HasForeignKey(i => i.Id_area)
+        .HasForeignKey(i => i.Id_lugar)
         .IsRequired();
     }
 }
