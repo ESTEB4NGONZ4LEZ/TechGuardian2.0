@@ -1,3 +1,4 @@
+using System.Reflection;
 using DinoApi.Extensions;
 using Microsoft.EntityFrameworkCore;
 using Persistencia;
@@ -12,6 +13,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.ConfigureCors();
 builder.Services.AddApplicationServices();
+builder.Services.AddAutoMapper(Assembly.GetEntryAssembly());
 
 builder.Services.AddDbContext<MainContext>(options => {
     string connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
