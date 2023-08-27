@@ -1,4 +1,7 @@
 
+using Aplicacion.UnitOfWork;
+using Dominio.Interface;
+
 namespace DinoApi.Extensions;
 
 public static class ApplicationServiceExtension
@@ -10,4 +13,8 @@ public static class ApplicationServiceExtension
             .AllowAnyHeader()
             );
     });
+    public static void AddApplicationServices(this IServiceCollection services)
+    {
+        services.AddScoped<IUnitOfWork, UnitOfWork>();
+    }
 }
