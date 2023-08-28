@@ -289,14 +289,13 @@ public class UnitOfWork : IUnitOfWork, IDisposable
             _tipoTelefono ??= new TipoTelefonoRepository(_context);
         }
     }
-
-    public Task<int> ToListAsync()
-    {
-        return _context.SaveChangesAsync();
-    }
-
     public void Dispose()
     {
         _context.Dispose();
+    }
+
+    public Task<int> SaveAsync()
+    {
+        return _context.SaveChangesAsync();
     }
 }

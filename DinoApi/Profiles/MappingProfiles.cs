@@ -2,7 +2,7 @@
 using AutoMapper;
 using Dominio.Entities;
 
-namespace DinoApi.Properties;
+namespace DinoApi.Profiles;
 
 public class MappingProfiles : Profile
 {

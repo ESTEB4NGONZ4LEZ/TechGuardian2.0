@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Fh69TnYPXHe/wrbUJaqZrBYuUKaeFn4O1vqarFuaHlSvoth3XCGeQUt1ABrE1Sxqjv3ZlAoLBopf7l1Nq0tveQ==",
+  "dgSpecHash": "7vjBFbxpjnZk/8QoRENLgZc/o93y5BIRs9DoKhMM7hxSMqep6woD2LYUWVpKxh1+WFL34RVcFl5m4Yb+oYg9JA==",
   "success": true,
-  "projectFilePath": "c:\\Users\\Esteban\\Documents\\Campus\\NetCore\\TechGuardian2.0\\DinoApi\\DinoApi.csproj",
+  "projectFilePath": "C:\\Users\\Esteban\\Documents\\Campus\\NetCore\\TechGuardian2.0\\DinoApi\\DinoApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Esteban\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\Esteban\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

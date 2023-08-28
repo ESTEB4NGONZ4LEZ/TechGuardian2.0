@@ -5947,11 +5947,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\Esteban\\Documents\\Campus\\NetCore\\TechGuardian2.0\\DinoApi\\DinoApi.csproj",
+      "projectUniqueName": "C:\\Users\\Esteban\\Documents\\Campus\\NetCore\\TechGuardian2.0\\DinoApi\\DinoApi.csproj",
       "projectName": "DinoApi",
-      "projectPath": "c:\\Users\\Esteban\\Documents\\Campus\\NetCore\\TechGuardian2.0\\DinoApi\\DinoApi.csproj",
+      "projectPath": "C:\\Users\\Esteban\\Documents\\Campus\\NetCore\\TechGuardian2.0\\DinoApi\\DinoApi.csproj",
       "packagesPath": "C:\\Users\\Esteban\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\Esteban\\Documents\\Campus\\NetCore\\TechGuardian2.0\\DinoApi\\obj\\",
+      "outputPath": "C:\\Users\\Esteban\\Documents\\Campus\\NetCore\\TechGuardian2.0\\DinoApi\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Esteban\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -5960,14 +5960,15 @@
         "net7.0"
       ],
       "sources": {
+        "C:\\Program Files\\dotnet\\sdk\\7.0.306\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "c:\\Users\\Esteban\\Documents\\Campus\\NetCore\\TechGuardian2.0\\Aplicacion\\Aplicacion.csproj": {
-              "projectPath": "c:\\Users\\Esteban\\Documents\\Campus\\NetCore\\TechGuardian2.0\\Aplicacion\\Aplicacion.csproj"
+            "C:\\Users\\Esteban\\Documents\\Campus\\NetCore\\TechGuardian2.0\\Aplicacion\\Aplicacion.csproj": {
+              "projectPath": "C:\\Users\\Esteban\\Documents\\Campus\\NetCore\\TechGuardian2.0\\Aplicacion\\Aplicacion.csproj"
             }
           }
         }

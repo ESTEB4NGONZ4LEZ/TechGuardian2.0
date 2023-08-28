@@ -23,6 +23,6 @@ public interface IUnitOfWork
     ITipoEmail TipoEmails { get; }
     ITipoInsidencia TipoInsidencias { get; }
     ITipoTelefono TipoTelefonos { get; }
-    Task<int> ToListAsync();
+    Task<int> SaveAsync();
 }
 

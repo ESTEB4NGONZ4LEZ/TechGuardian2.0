@@ -11,6 +11,7 @@ public class AreaRepository : GenericRepository<Area>, IArea
     private readonly MainContext _context;
     public AreaRepository(MainContext context) : base(context)
     {
+        _context = context;
     }
     public override async Task<IEnumerable<Area>> GetAllAsync()
     {

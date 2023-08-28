@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\Esteban\\Documents\\Campus\\NetCore\\TechGuardian2.0\\DinoApi\\DinoApi.csproj": {}
+    "C:\\Users\\Esteban\\Documents\\Campus\\NetCore\\TechGuardian2.0\\DinoApi\\DinoApi.csproj": {}
   },
   "projects": {
-    "c:\\Users\\Esteban\\Documents\\Campus\\NetCore\\TechGuardian2.0\\Aplicacion\\Aplicacion.csproj": {
+    "C:\\Users\\Esteban\\Documents\\Campus\\NetCore\\TechGuardian2.0\\Aplicacion\\Aplicacion.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Esteban\\Documents\\Campus\\NetCore\\TechGuardian2.0\\Aplicacion\\Aplicacion.csproj",
+        "projectUniqueName": "C:\\Users\\Esteban\\Documents\\Campus\\NetCore\\TechGuardian2.0\\Aplicacion\\Aplicacion.csproj",
         "projectName": "Aplicacion",
-        "projectPath": "c:\\Users\\Esteban\\Documents\\Campus\\NetCore\\TechGuardian2.0\\Aplicacion\\Aplicacion.csproj",
+        "projectPath": "C:\\Users\\Esteban\\Documents\\Campus\\NetCore\\TechGuardian2.0\\Aplicacion\\Aplicacion.csproj",
         "packagesPath": "C:\\Users\\Esteban\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Esteban\\Documents\\Campus\\NetCore\\TechGuardian2.0\\Aplicacion\\obj\\",
+        "outputPath": "C:\\Users\\Esteban\\Documents\\Campus\\NetCore\\TechGuardian2.0\\Aplicacion\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Esteban\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -26,11 +26,11 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "c:\\Users\\Esteban\\Documents\\Campus\\NetCore\\TechGuardian2.0\\Dominio\\Dominio.csproj": {
-                "projectPath": "c:\\Users\\Esteban\\Documents\\Campus\\NetCore\\TechGuardian2.0\\Dominio\\Dominio.csproj"
+              "C:\\Users\\Esteban\\Documents\\Campus\\NetCore\\TechGuardian2.0\\Dominio\\Dominio.csproj": {
+                "projectPath": "C:\\Users\\Esteban\\Documents\\Campus\\NetCore\\TechGuardian2.0\\Dominio\\Dominio.csproj"
               },
-              "c:\\Users\\Esteban\\Documents\\Campus\\NetCore\\TechGuardian2.0\\Persistencia\\Persistencia.csproj": {
-                "projectPath": "c:\\Users\\Esteban\\Documents\\Campus\\NetCore\\TechGuardian2.0\\Persistencia\\Persistencia.csproj"
+              "C:\\Users\\Esteban\\Documents\\Campus\\NetCore\\TechGuardian2.0\\Persistencia\\Persistencia.csproj": {
+                "projectPath": "C:\\Users\\Esteban\\Documents\\Campus\\NetCore\\TechGuardian2.0\\Persistencia\\Persistencia.csproj"
               }
             }
           }
@@ -64,14 +64,14 @@
         }
       }
     },
-    "c:\\Users\\Esteban\\Documents\\Campus\\NetCore\\TechGuardian2.0\\DinoApi\\DinoApi.csproj": {
+    "C:\\Users\\Esteban\\Documents\\Campus\\NetCore\\TechGuardian2.0\\DinoApi\\DinoApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Esteban\\Documents\\Campus\\NetCore\\TechGuardian2.0\\DinoApi\\DinoApi.csproj",
+        "projectUniqueName": "C:\\Users\\Esteban\\Documents\\Campus\\NetCore\\TechGuardian2.0\\DinoApi\\DinoApi.csproj",
         "projectName": "DinoApi",
-        "projectPath": "c:\\Users\\Esteban\\Documents\\Campus\\NetCore\\TechGuardian2.0\\DinoApi\\DinoApi.csproj",
+        "projectPath": "C:\\Users\\Esteban\\Documents\\Campus\\NetCore\\TechGuardian2.0\\DinoApi\\DinoApi.csproj",
         "packagesPath": "C:\\Users\\Esteban\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Esteban\\Documents\\Campus\\NetCore\\TechGuardian2.0\\DinoApi\\obj\\",
+        "outputPath": "C:\\Users\\Esteban\\Documents\\Campus\\NetCore\\TechGuardian2.0\\DinoApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Esteban\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -80,14 +80,15 @@
           "net7.0"
         ],
         "sources": {
+          "C:\\Program Files\\dotnet\\sdk\\7.0.306\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "c:\\Users\\Esteban\\Documents\\Campus\\NetCore\\TechGuardian2.0\\Aplicacion\\Aplicacion.csproj": {
-                "projectPath": "c:\\Users\\Esteban\\Documents\\Campus\\NetCore\\TechGuardian2.0\\Aplicacion\\Aplicacion.csproj"
+              "C:\\Users\\Esteban\\Documents\\Campus\\NetCore\\TechGuardian2.0\\Aplicacion\\Aplicacion.csproj": {
+                "projectPath": "C:\\Users\\Esteban\\Documents\\Campus\\NetCore\\TechGuardian2.0\\Aplicacion\\Aplicacion.csproj"
               }
             }
           }
@@ -152,14 +153,14 @@
         }
       }
     },
-    "c:\\Users\\Esteban\\Documents\\Campus\\NetCore\\TechGuardian2.0\\Dominio\\Dominio.csproj": {
+    "C:\\Users\\Esteban\\Documents\\Campus\\NetCore\\TechGuardian2.0\\Dominio\\Dominio.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Esteban\\Documents\\Campus\\NetCore\\TechGuardian2.0\\Dominio\\Dominio.csproj",
+        "projectUniqueName": "C:\\Users\\Esteban\\Documents\\Campus\\NetCore\\TechGuardian2.0\\Dominio\\Dominio.csproj",
         "projectName": "Dominio",
-        "projectPath": "c:\\Users\\Esteban\\Documents\\Campus\\NetCore\\TechGuardian2.0\\Dominio\\Dominio.csproj",
+        "projectPath": "C:\\Users\\Esteban\\Documents\\Campus\\NetCore\\TechGuardian2.0\\Dominio\\Dominio.csproj",
         "packagesPath": "C:\\Users\\Esteban\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Esteban\\Documents\\Campus\\NetCore\\TechGuardian2.0\\Dominio\\obj\\",
+        "outputPath": "C:\\Users\\Esteban\\Documents\\Campus\\NetCore\\TechGuardian2.0\\Dominio\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Esteban\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -219,14 +220,14 @@
         }
       }
     },
-    "c:\\Users\\Esteban\\Documents\\Campus\\NetCore\\TechGuardian2.0\\Persistencia\\Persistencia.csproj": {
+    "C:\\Users\\Esteban\\Documents\\Campus\\NetCore\\TechGuardian2.0\\Persistencia\\Persistencia.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Esteban\\Documents\\Campus\\NetCore\\TechGuardian2.0\\Persistencia\\Persistencia.csproj",
+        "projectUniqueName": "C:\\Users\\Esteban\\Documents\\Campus\\NetCore\\TechGuardian2.0\\Persistencia\\Persistencia.csproj",
         "projectName": "Persistencia",
-        "projectPath": "c:\\Users\\Esteban\\Documents\\Campus\\NetCore\\TechGuardian2.0\\Persistencia\\Persistencia.csproj",
+        "projectPath": "C:\\Users\\Esteban\\Documents\\Campus\\NetCore\\TechGuardian2.0\\Persistencia\\Persistencia.csproj",
         "packagesPath": "C:\\Users\\Esteban\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Esteban\\Documents\\Campus\\NetCore\\TechGuardian2.0\\Persistencia\\obj\\",
+        "outputPath": "C:\\Users\\Esteban\\Documents\\Campus\\NetCore\\TechGuardian2.0\\Persistencia\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Esteban\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -241,8 +242,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "c:\\Users\\Esteban\\Documents\\Campus\\NetCore\\TechGuardian2.0\\Dominio\\Dominio.csproj": {
-                "projectPath": "c:\\Users\\Esteban\\Documents\\Campus\\NetCore\\TechGuardian2.0\\Dominio\\Dominio.csproj"
+              "C:\\Users\\Esteban\\Documents\\Campus\\NetCore\\TechGuardian2.0\\Dominio\\Dominio.csproj": {
+                "projectPath": "C:\\Users\\Esteban\\Documents\\Campus\\NetCore\\TechGuardian2.0\\Dominio\\Dominio.csproj"
               }
             }
           }
