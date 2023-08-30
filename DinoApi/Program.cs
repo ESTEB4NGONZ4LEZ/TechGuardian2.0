@@ -1,4 +1,5 @@
 using System.Reflection;
+using AspNetCoreRateLimit;
 using DinoApi.Extensions;
 using Microsoft.EntityFrameworkCore;
 using Persistencia;
@@ -14,6 +15,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.ConfigureCors();
 builder.Services.AddApplicationServices();
 builder.Services.AddAutoMapper(Assembly.GetEntryAssembly());
+builder.Services.ConfigureRateLimiting();
 
 builder.Services.AddDbContext<MainContext>(options => {
     string connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
@@ -28,9 +30,12 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
 app.UseCors("CorsPolicy");
 
 app.UseHttpsRedirection();
+
+app.UseIpRateLimiting();
 
 app.UseAuthorization();
 

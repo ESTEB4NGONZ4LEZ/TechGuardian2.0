@@ -73,3 +73,4 @@ C:\Users\Esteban\Documents\Campus\NetCore\TechGuardian2.0\DinoApi\bin\Debug\net7
 C:\Users\Esteban\Documents\Campus\NetCore\TechGuardian2.0\DinoApi\bin\Debug\net7.0\System.CodeDom.dll
 C:\Users\Esteban\Documents\Campus\NetCore\TechGuardian2.0\DinoApi\bin\Debug\net7.0\AutoMapper.dll
 C:\Users\Esteban\Documents\Campus\NetCore\TechGuardian2.0\DinoApi\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\Esteban\Documents\Campus\NetCore\TechGuardian2.0\DinoApi\bin\Debug\net7.0\AspNetCoreRateLimit.dll
