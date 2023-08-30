@@ -6,6 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace DinoApi.Controllers;
 
+[ApiVersion("1.0")]
+[ApiVersion("1.1")]
+
 public class AreaController : BaseApiController
 {
     private readonly IUnitOfWork _unitOfWork;
@@ -17,6 +20,7 @@ public class AreaController : BaseApiController
     }
 
     [HttpGet]
+    // [MapToApiVersion("1.0")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<List<AreaDto>> GetArea()
@@ -26,6 +30,7 @@ public class AreaController : BaseApiController
     }
     
     [HttpGet("{id}")]
+    [MapToApiVersion("1.1")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -37,6 +42,7 @@ public class AreaController : BaseApiController
     }
 
     [HttpPost]
+    [MapToApiVersion("1.0")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<ActionResult<AreaDto>> PostArea(AreaDto dataArea)
@@ -49,6 +55,7 @@ public class AreaController : BaseApiController
     }
 
     [HttpPut("{id}")]
+    [MapToApiVersion("1.0")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -63,6 +70,7 @@ public class AreaController : BaseApiController
     }
 
     [HttpDelete("{id}")]
+    [MapToApiVersion("1.0")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<ActionResult> DeleteArea(int id)

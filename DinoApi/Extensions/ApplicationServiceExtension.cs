@@ -3,6 +3,8 @@ using System.Threading.RateLimiting;
 using Aplicacion.UnitOfWork;
 using AspNetCoreRateLimit;
 using Dominio.Interface;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Versioning;
 
 namespace DinoApi.Extensions;
 
@@ -40,6 +42,19 @@ public static class ApplicationServiceExtension
                     Limit = 2
                 }   
             };
+        });
+    }
+    public static void ConfigureApiVersioning(this IServiceCollection services)
+    {
+        services.AddApiVersioning(options => 
+        {
+            options.DefaultApiVersion = new ApiVersion(1, 0);
+            options.AssumeDefaultVersionWhenUnspecified = true;
+            options.ApiVersionReader = ApiVersionReader.Combine
+            (
+                new QueryStringApiVersionReader("version"),
+                new HeaderApiVersionReader("X-Version")
+            );
         });
     }
 }

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "tREmdyg8JktgOU4ANRdz2FU01F6VE/XKAoLQTl6bOwGvZTn73dNNmIkskfciVo3ivLZ3FzXp9tmtV245d4jEOQ==",
+  "dgSpecHash": "zqK+o4aiIp698s/2y9e6W4Gxf1Az4nvHVLdfylrgnqmbJOFpu7UPaHS0/V7/euEtk0yVtf2qjuVrC8QDvWJ7kA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Esteban\\Documents\\Campus\\NetCore\\TechGuardian2.0\\DinoApi\\DinoApi.csproj",
   "expectedPackageFiles": [
@@ -16,6 +16,7 @@
     "C:\\Users\\Esteban\\.nuget\\packages\\itext.pdfhtml\\5.0.1\\itext.pdfhtml.5.0.1.nupkg.sha512",
     "C:\\Users\\Esteban\\.nuget\\packages\\itext7.pdfhtml\\5.0.1\\itext7.pdfhtml.5.0.1.nupkg.sha512",
     "C:\\Users\\Esteban\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\7.0.10\\microsoft.aspnetcore.authentication.jwtbearer.7.0.10.nupkg.sha512",
+    "C:\\Users\\Esteban\\.nuget\\packages\\microsoft.aspnetcore.mvc.versioning\\5.1.0\\microsoft.aspnetcore.mvc.versioning.5.1.0.nupkg.sha512",
     "C:\\Users\\Esteban\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.9\\microsoft.aspnetcore.openapi.7.0.9.nupkg.sha512",
     "C:\\Users\\Esteban\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\Esteban\\.nuget\\packages\\microsoft.dotnet.platformabstractions\\1.1.0\\microsoft.dotnet.platformabstractions.1.1.0.nupkg.sha512",

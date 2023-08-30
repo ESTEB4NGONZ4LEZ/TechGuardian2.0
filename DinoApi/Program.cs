@@ -16,6 +16,7 @@ builder.Services.ConfigureCors();
 builder.Services.AddApplicationServices();
 builder.Services.AddAutoMapper(Assembly.GetEntryAssembly());
 builder.Services.ConfigureRateLimiting();
+builder.Services.ConfigureApiVersioning();
 
 builder.Services.AddDbContext<MainContext>(options => {
     string connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
