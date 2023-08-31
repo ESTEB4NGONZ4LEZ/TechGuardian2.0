@@ -1,5 +1,6 @@
 
 using AutoMapper;
+using DinoApi.Helpers;
 using Dominio.Entities;
 using Dominio.Interface;
 using Microsoft.AspNetCore.Mvc;
@@ -20,25 +21,13 @@ public class AreaController : BaseApiController
     }
 
     [HttpGet]
-    // [MapToApiVersion("1.0")]
+    [MapToApiVersion("1.0")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<List<AreaDto>> GetArea()
     {
         var areas = await _unitOfWork.Areas.GetAllAsync();
         return _mapper.Map<List<AreaDto>>(areas);   
-    }
-    
-    [HttpGet("{id}")]
-    [MapToApiVersion("1.1")]
-    [ProducesResponseType(StatusCodes.Status200OK)]
-    [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<ActionResult<AreaDto>> GetByIdAsyncArea(int id)
-    {
-        var area = await _unitOfWork.Areas.GetByIdAsync(id);
-        if(area == null) return NotFound(); 
-        return _mapper.Map<AreaDto>(area);
     }
 
     [HttpPost]
@@ -80,5 +69,40 @@ public class AreaController : BaseApiController
         _unitOfWork.Areas.Remove(pais);
         await _unitOfWork.SaveAsync();
         return NoContent();
+    }
+
+    [HttpGet("{id}")]
+    [MapToApiVersion("1.1")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<ActionResult<AreaDto>> GetByIdAsyncArea(int id)
+    {
+        var area = await _unitOfWork.Areas.GetByIdAsync(id);
+        if(area == null) return NotFound(); 
+        return _mapper.Map<AreaDto>(area);
+    }
+
+    [HttpGet]
+    [MapToApiVersion("1.1")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<Pager<AreaDto>>> GetAreaWhithPage([FromQuery] Params areaParams)
+    {
+        var area = await _unitOfWork.Areas.GetAllAsync
+        (
+            areaParams.PageIndex,
+            areaParams.PageSize,
+            areaParams.Search
+        );
+        var lstAreas = _mapper.Map<List<AreaDto>>(area.registros);
+        return new Pager<AreaDto>
+        (
+            lstAreas,
+            area.totalRegistros,
+            areaParams.PageIndex,
+            areaParams.PageSize,
+            areaParams.Search
+        );
     }
 }
