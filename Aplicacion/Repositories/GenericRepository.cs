@@ -9,7 +9,7 @@ namespace Aplicacion.Repositories;
 
 public class GenericRepository<T> : IGeneric<T> where T : BaseEntity
 {
-    private readonly MainContext _context;
+    protected readonly MainContext _context;
     public GenericRepository(MainContext context)
     {
         _context = context;
@@ -42,8 +42,27 @@ public class GenericRepository<T> : IGeneric<T> where T : BaseEntity
     {
         _context.Set<T>().RemoveRange(entities);
     }
+    public virtual async Task
+        <(
+            int totalRegistros, 
+            IEnumerable<T> registros
+        )> GetAllAsync
+        (
+            int pageIndex, 
+            int pageSize, 
+            string search
+        )
+    {
+        var totalRegistros = await _context.Set<T>().CountAsync();
+        var registros = await _context.Set<T>()
+            .Skip((pageIndex - 1) * pageSize)
+            .Take(pageSize)
+            .ToListAsync();
+        return (totalRegistros, registros);
+    }
     public virtual IEnumerable<T> Find(Expression<Func<T, bool>> expression)
     {
         return _context.Set<T>().Where(expression);
     }
+
 }

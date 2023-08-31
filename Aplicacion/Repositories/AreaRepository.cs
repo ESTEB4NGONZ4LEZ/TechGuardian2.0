@@ -8,10 +8,8 @@ namespace Aplicacion.Repositories;
 
 public class AreaRepository : GenericRepository<Area>, IArea
 {
-    private readonly MainContext _context;
     public AreaRepository(MainContext context) : base(context)
     {
-        _context = context;
     }
     public override async Task<IEnumerable<Area>> GetAllAsync()
     {
@@ -20,5 +18,28 @@ public class AreaRepository : GenericRepository<Area>, IArea
     public override async Task<Area> GetByIdAsync(int id)
     {
         return await _context.Areas.FindAsync(id);    
+    }
+    public override async Task
+    <(
+        int totalRegistros,
+        IEnumerable<Area> registros
+    )> GetAllAsync
+    (
+        int pageIndex,
+        int pageSize,
+        string search
+    )
+    {
+        var query = _context.Areas as IQueryable<Area>;
+        if(!string.IsNullOrEmpty(search)) 
+        {
+            query = query.Where(x => x.Nombre.ToLower().Contains(search));
+        }
+        var totalRegistros = await query.CountAsync();
+        var registros = await query
+            .Skip((pageIndex - 1) * pageSize)
+            .Take(pageSize)
+            .ToListAsync();
+        return (totalRegistros, registros);
     }
 }
