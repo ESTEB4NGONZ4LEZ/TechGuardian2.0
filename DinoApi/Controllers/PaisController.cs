@@ -82,11 +82,11 @@ public class PaisController : BaseApiController
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<ActionResult<PaisDto>> GetByIdAsyncPais(int id)
+    public async Task<ActionResult<PaisxDepartamentoDto>> GetByIdAsyncPais(int id)
     {
         var pais = await _unitOfWork.Paises.GetByIdAsync(id);
         if(pais == null) return NotFound(); 
-        return _mapper.Map<PaisDto>(pais);
+        return _mapper.Map<PaisxDepartamentoDto>(pais);
     }
 
     [HttpGet]

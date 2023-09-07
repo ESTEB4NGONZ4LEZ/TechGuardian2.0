@@ -1,5 +1,6 @@
 
 using AutoMapper;
+using DinoApi.Dtos;
 using DinoApi.Dtos.Area;
 using Dominio.Entities;
 
@@ -18,16 +19,19 @@ public class MappingProfiles : Profile
         CreateMap<Componente, ComponenteDto>().ReverseMap();
         CreateMap<Computador, ComputadorDto>().ReverseMap();
         CreateMap<Departamento, DepartamentoDto>().ReverseMap();
+        CreateMap<Departamento, DepartamentoxCiudadDto>().ReverseMap();
         CreateMap<Eps, EpsDto>().ReverseMap();
         CreateMap<Estado, EstadoDto>().ReverseMap();
         CreateMap<Insidencia, InsidenciaDto>().ReverseMap();
         CreateMap<Lugar, LugarDto>().ReverseMap();
         CreateMap<Pais, PaisDto>().ReverseMap();
+        CreateMap<Pais, PaisxDepartamentoDto>().ReverseMap();
         CreateMap<Persona, PersonaDto>().ReverseMap();
         CreateMap<Rol, RolDto>().ReverseMap();
         CreateMap<TipoDocumento, TipoDocumentoDto>().ReverseMap();
         CreateMap<TipoEmail, TipoEmailDto>().ReverseMap();
         CreateMap<TipoInsidencia, TipoInsidenciaDto>().ReverseMap();
         CreateMap<TipoTelefono, TipoTelefonoDto>().ReverseMap();
+        CreateMap<Usuario, UsuarioxGetDto>().ReverseMap();
     }
 }

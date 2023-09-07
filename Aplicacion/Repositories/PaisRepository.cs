@@ -17,7 +17,9 @@ public class PaisRepository : GenericRepository<Pais>, IPais
     }
     public override async Task<Pais> GetByIdAsync(int id)
     {
-        return await _context.Paises.FindAsync(id);
+        return await _context.Paises
+                             .Include(x => x.Departamentos)
+                             .FirstOrDefaultAsync(x => x.Id == id);
     }
     public override async Task
     <(

@@ -17,7 +17,9 @@ public class DepartamentoRepository : GenericRepository<Departamento>, IDepartam
     }
     public override async Task<Departamento> GetByIdAsync(int id)
     {
-        return await _context.Departamentos.FindAsync(id);
+        return await _context.Departamentos
+                             .Include(x => x.Ciudades)
+                             .FirstOrDefaultAsync(x => x.Id == id);
     }
     public override async Task
     <(

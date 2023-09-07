@@ -96,7 +96,7 @@ public class LugarController : BaseApiController
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<Pager<LugarDto>>> GetLugarWhithPage([FromQuery] Params lugarParams)
     {
-        var lugar = await _unitOfWork.Insidencias.GetAllAsync
+        var lugar = await _unitOfWork.Lugares.GetAllAsync
         (
             lugarParams.PageIndex,
             lugarParams.PageSize,

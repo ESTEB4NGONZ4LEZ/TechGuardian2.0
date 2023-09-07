@@ -23,17 +23,18 @@ public class UsuarioController : BaseApiController
     }
 
     [HttpGet]
-    [Authorize]
+    [Authorize(Roles = "Administrador, Gerente")]
     [MapToApiVersion("1.0")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    public async Task<List<UsuarioDto>> GetUsuario()
+    public async Task<List<UsuarioxGetDto>> GetUsuario()
     {
         var usuario = await _unitOfWork.Usuarios.GetAllAsync();
-        return _mapper.Map<List<UsuarioDto>>(usuario);   
+        return _mapper.Map<List<UsuarioxGetDto>>(usuario);   
     }
 
     [HttpPost("register")]
+    [Authorize(Roles = "Administrador, Gerente")]
     public async Task<ActionResult> RegisterAsync(RegisterUsuarioDto dataUser)
     {
         var registration = await _userService.RegisterUserAsync(dataUser);
@@ -53,7 +54,7 @@ public class UsuarioController : BaseApiController
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    public async Task<ActionResult<UsuarioDto>> PutUsuario(int id, [FromBody] UsuarioDto dataUpdate)
+    public async Task<ActionResult<UsuarioxGetDto>> PutUsuario(int id, [FromBody] UsuarioxGetDto dataUpdate)
     {
         if(dataUpdate == null) return NotFound();
         var usuario = _mapper.Map<Usuario>(dataUpdate);
@@ -78,15 +79,15 @@ public class UsuarioController : BaseApiController
     }
 
     [HttpGet("{id}")]
-    [Authorize]
+    [Authorize(Roles = "Administrador, Gerente")]
     [MapToApiVersion("1.1")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<ActionResult<UsuarioDto>> GetUsuarioByIdAsyncU(int id)
+    public async Task<ActionResult<UsuarioxGetDto>> GetUsuarioByIdAsyncU(int id)
     {
         var usuario = await _unitOfWork.Usuarios.GetByIdAsync(id);
         if(usuario == null) return NotFound(); 
-        return _mapper.Map<UsuarioDto>(usuario);
+        return _mapper.Map<UsuarioxGetDto>(usuario);
     }
 }

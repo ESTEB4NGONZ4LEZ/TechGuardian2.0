@@ -83,11 +83,11 @@ public class DepartamentoController : BaseApiController
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<ActionResult<DepartamentoDto>> GetByIdAsyncDepartamento(int id)
+    public async Task<ActionResult<DepartamentoxCiudadDto>> GetByIdAsyncDepartamento(int id)
     {
         var departamento = await _unitOfWork.Departamentos.GetByIdAsync(id);
         if(departamento == null) return NotFound(); 
-        return _mapper.Map<DepartamentoDto>(departamento);
+        return _mapper.Map<DepartamentoxCiudadDto>(departamento);
     }
 
     [HttpGet]

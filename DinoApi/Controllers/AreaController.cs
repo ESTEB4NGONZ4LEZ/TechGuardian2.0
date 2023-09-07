@@ -83,11 +83,11 @@ public class AreaController : BaseApiController
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<ActionResult<AreaDto>> GetByIdAsyncArea(int id)
+    public async Task<ActionResult<AreaxLugarDto>> GetByIdAsyncArea(int id)
     {
         var area = await _unitOfWork.Areas.GetByIdAsync(id);
         if(area == null) return NotFound(); 
-        return _mapper.Map<AreaDto>(area);
+        return _mapper.Map<AreaxLugarDto>(area);
     }
 
     [HttpGet]

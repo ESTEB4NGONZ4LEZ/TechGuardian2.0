@@ -1,5 +1,4 @@
 
-using System.Security.Cryptography.Xml;
 using Dominio.Entities;
 using Dominio.Interface;
 using Microsoft.EntityFrameworkCore;
@@ -18,7 +17,9 @@ public class AreaRepository : GenericRepository<Area>, IArea
     }
     public override async Task<Area> GetByIdAsync(int id)
     {
-        return await _context.Areas.FindAsync(id);    
+        return await _context.Areas
+                             .Include(x => x.Lugares)
+                             .FirstOrDefaultAsync(x => x.Id == id);    
     }
     public override async Task
     <(

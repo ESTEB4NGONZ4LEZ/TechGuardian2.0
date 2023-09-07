@@ -84,6 +84,7 @@ public class UserServices : IUserServices
             modelDatosUsuario.Mensaje = "Ok";
             modelDatosUsuario.EstaAutenticado = true;
             modelDatosUsuario.UserName = datosUsuario.Username;
+            modelDatosUsuario.Email = usuario.Email;
             modelDatosUsuario.Token = CrearToken(usuario);
             return modelDatosUsuario;
         }
