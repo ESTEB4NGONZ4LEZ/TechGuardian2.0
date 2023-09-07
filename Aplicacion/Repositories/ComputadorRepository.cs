@@ -8,7 +8,6 @@ namespace Aplicacion.Repositories;
 
 public class ComputadorRepository : GenericRepository<Computador>, IComputador
 {
-    private readonly MainContext _context;
     public ComputadorRepository(MainContext context) : base(context)
     {
     }
@@ -19,5 +18,24 @@ public class ComputadorRepository : GenericRepository<Computador>, IComputador
     public override async Task<Computador> GetByIdAsync(int id)
     {
         return await _context.Computadores.FindAsync(id);
+    }
+    public override async Task
+    <(
+        int totalRegistros,
+        IEnumerable<Computador> registros
+    )> GetAllAsync
+    (
+        int pageIndex,
+        int pageSize,
+        string search
+    )
+    {
+        var query = _context.Computadores as IQueryable<Computador>;
+        var totalRegistros = await query.CountAsync();
+        var registros = await query
+            .Skip((pageIndex - 1) * pageSize)
+            .Take(pageSize)
+            .ToListAsync();
+        return (totalRegistros, registros);
     }
 }

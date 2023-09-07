@@ -8,7 +8,6 @@ namespace Aplicacion.Repositories;
 
 public class EpsRepository : GenericRepository<Eps>, IEps
 {
-    private readonly MainContext _context;
     public EpsRepository(MainContext context) : base(context)
     {
     }

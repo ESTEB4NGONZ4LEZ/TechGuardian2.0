@@ -8,7 +8,6 @@ namespace Aplicacion.Repositories;
 
 public class TipoInsidenciaRepository : GenericRepository<TipoInsidencia>, ITipoInsidencia
 {
-    private readonly MainContext _context;
     public TipoInsidenciaRepository(MainContext context) : base(context)
     {
     }

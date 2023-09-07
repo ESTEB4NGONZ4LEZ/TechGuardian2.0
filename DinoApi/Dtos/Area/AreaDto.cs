@@ -1,5 +1,5 @@
 
-namespace Dominio.Entities;
+namespace DinoApi.Dtos.Area;
 
 public class AreaDto
 {

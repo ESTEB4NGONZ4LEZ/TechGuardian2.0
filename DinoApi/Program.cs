@@ -1,4 +1,5 @@
 using System.Reflection;
+using System.Text;
 using AspNetCoreRateLimit;
 using DinoApi.Extensions;
 using Microsoft.EntityFrameworkCore;
@@ -17,6 +18,7 @@ builder.Services.AddApplicationServices();
 builder.Services.AddAutoMapper(Assembly.GetEntryAssembly());
 builder.Services.ConfigureRateLimiting();
 builder.Services.ConfigureApiVersioning();
+builder.Services.JwtConfiguration(builder.Configuration);
 
 builder.Services.AddDbContext<MainContext>(options => {
     string connectionString = builder.Configuration.GetConnectionString("DefaultConnection");

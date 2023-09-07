@@ -8,7 +8,6 @@ namespace Aplicacion.Repositories;
 
 public class EstadoRepository : GenericRepository<Estado>, IEstado
 {
-    private readonly MainContext _context;
     public EstadoRepository(MainContext context) : base(context)
     {
     }

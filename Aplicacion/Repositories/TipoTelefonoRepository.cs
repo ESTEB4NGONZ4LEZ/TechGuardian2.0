@@ -8,7 +8,6 @@ namespace Aplicacion.Repositories;
 
 public class TipoTelefonoRepository : GenericRepository<TipoTelefono>, ITipoTelefono
 {
-    private readonly MainContext _context;
     public TipoTelefonoRepository(MainContext context) : base(context)
     {
     }
@@ -19,5 +18,5 @@ public class TipoTelefonoRepository : GenericRepository<TipoTelefono>, ITipoTele
     public override async Task<TipoTelefono> GetByIdAsync(int id)
     {
         return await _context.TipoTelefonos.FindAsync(id);
-    }   
+    }
 }

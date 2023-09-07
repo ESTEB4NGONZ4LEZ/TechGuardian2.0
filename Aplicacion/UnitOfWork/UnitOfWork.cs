@@ -20,7 +20,6 @@ public class UnitOfWork : IUnitOfWork, IDisposable
     private ComponenteRepository _componentes;
     private ComputadorRepository _computadores;
     private DepartamentoRepository _departamentos;
-    private DireccionRepository _direcciones;
     private EpsRepository _eps;
     private EstadoRepository _estados;
     private InsidenciaRepository _insidencias;
@@ -32,6 +31,7 @@ public class UnitOfWork : IUnitOfWork, IDisposable
     private TipoEmailRepository _tipoEmail;
     private TipoInsidenciaRepository _tipoInsidencia;
     private TipoTelefonoRepository _tipoTelefono;
+    private UsuarioRepository _usuario;
     public IArea Areas
     {
         get
@@ -131,19 +131,6 @@ public class UnitOfWork : IUnitOfWork, IDisposable
         set
         {
             _departamentos ??= new DepartamentoRepository(_context);
-        }
-    }
-
-    public IDireccion Direcciones
-    {
-        get
-        {
-            _direcciones ??= new DireccionRepository(_context);
-            return _direcciones;
-        }
-        set
-        {
-            _direcciones ??= new DireccionRepository(_context);
         }
     }
 
@@ -289,6 +276,20 @@ public class UnitOfWork : IUnitOfWork, IDisposable
             _tipoTelefono ??= new TipoTelefonoRepository(_context);
         }
     }
+
+    public IUsuario Usuarios 
+    {
+        get
+        {
+            _usuario ??= new UsuarioRepository(_context);
+            return _usuario;
+        }
+        set
+        {
+            _usuario ??= new UsuarioRepository(_context);
+        }
+    }
+
     public void Dispose()
     {
         _context.Dispose();

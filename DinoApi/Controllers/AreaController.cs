@@ -1,8 +1,10 @@
 
 using AutoMapper;
+using DinoApi.Dtos.Area;
 using DinoApi.Helpers;
 using Dominio.Entities;
 using Dominio.Interface;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DinoApi.Controllers;
@@ -21,6 +23,7 @@ public class AreaController : BaseApiController
     }
 
     [HttpGet]
+    [Authorize]
     [MapToApiVersion("1.0")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -31,6 +34,7 @@ public class AreaController : BaseApiController
     }
 
     [HttpPost]
+    [Authorize(Roles = "Administrador, Gerente")]
     [MapToApiVersion("1.0")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -44,6 +48,7 @@ public class AreaController : BaseApiController
     }
 
     [HttpPut("{id}")]
+    [Authorize(Roles = "Administrador, Gerente")]
     [MapToApiVersion("1.0")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -59,19 +64,21 @@ public class AreaController : BaseApiController
     }
 
     [HttpDelete("{id}")]
+    [Authorize(Roles = "Administrador, Gerente")]
     [MapToApiVersion("1.0")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<ActionResult> DeleteArea(int id)
     {
-        var pais = await _unitOfWork.Areas.GetByIdAsync(id);
-        if(pais == null) return NotFound();
-        _unitOfWork.Areas.Remove(pais);
+        var area = await _unitOfWork.Areas.GetByIdAsync(id);
+        if(area == null) return NotFound();
+        _unitOfWork.Areas.Remove(area);
         await _unitOfWork.SaveAsync();
         return NoContent();
     }
 
     [HttpGet("{id}")]
+    [Authorize]
     [MapToApiVersion("1.1")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -84,6 +91,7 @@ public class AreaController : BaseApiController
     }
 
     [HttpGet]
+    [Authorize]
     [MapToApiVersion("1.1")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]

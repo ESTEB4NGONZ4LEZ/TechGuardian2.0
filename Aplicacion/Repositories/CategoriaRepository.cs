@@ -8,7 +8,6 @@ namespace Aplicacion.Repositories;
 
 public class CategoriaRepository : GenericRepository<Categoria>, ICategoria
 {
-    private readonly MainContext _context;
     public CategoriaRepository(MainContext context) : base(context)
     {
     }
@@ -20,5 +19,4 @@ public class CategoriaRepository : GenericRepository<Categoria>, ICategoria
     {
         return await _context.Categorias.FindAsync(id);
     }
-
 }

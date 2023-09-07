@@ -27,6 +27,10 @@ public class PersonaConfig : IEntityTypeConfiguration<Persona>
         .HasMaxLength(50)
         .IsRequired();
 
+        builder.Property(x => x.Direccion)
+        .HasMaxLength(200)
+        .IsRequired();
+
         builder.HasOne(a => a.Ciudad)
         .WithMany(e => e.Personas)
         .HasForeignKey(i => i.Id_ciudad)
@@ -60,11 +64,6 @@ public class PersonaConfig : IEntityTypeConfiguration<Persona>
         builder.HasOne(a => a.TipoDocumento)
         .WithMany(e => e.Personas)
         .HasForeignKey(i => i.Id_tipo_documento)
-        .IsRequired();
-
-        builder.HasOne(a => a.Rol)
-        .WithMany(e => e.Personas)
-        .HasForeignKey(i => i.Id_rol)
         .IsRequired();
     }
 }

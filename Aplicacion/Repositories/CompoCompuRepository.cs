@@ -7,44 +7,36 @@ using Persistencia;
 
 namespace Aplicacion.Repositories;
 
-public class CompoCompuRepository : ICompoCompu
+public class CompoCompuRepository : GenericRepository<CompoCompu>, ICompoCompu
 {
-    private readonly MainContext _context;
-    public CompoCompuRepository(MainContext context)
+    public CompoCompuRepository(MainContext context) : base(context)
     {
-        _context = context;
     }
-    public async Task<IEnumerable<CompoCompu>> GetAllAsync()
+    public override async Task<IEnumerable<CompoCompu>> GetAllAsync()
     {
-        return await _context.Set<CompoCompu>().ToListAsync();
+        return await _context.CompoCompus.ToListAsync();    
     }
-    public async Task<CompoCompu> GetByIdAsync(int id_compu, int id_tip_compo)
+    public override async Task<CompoCompu> GetByIdAsync(int id)
     {
-        return await _context.Set<CompoCompu>().FindAsync(id_compu, id_tip_compo);
+        return await _context.CompoCompus.FindAsync(id);
     }
-    public void Add(CompoCompu entity)
+    public override async Task
+    <(
+        int totalRegistros,
+        IEnumerable<CompoCompu> registros
+    )> GetAllAsync
+    (
+        int pageIndex,
+        int pageSize,
+        string search
+    )
     {
-        _context.Set<CompoCompu>().Add(entity); 
-    }
-    public void AddRange(CompoCompu entities)
-    {
-        _context.Set<CompoCompu>().AddRange();
-    }
-    public void Update(CompoCompu entity)
-    {
-        _context.Set<CompoCompu>().Update(entity);
-    }
-    public void Remove(CompoCompu entity)
-    {
-        _context.Set<CompoCompu>().Remove(entity);
-    }
-
-    public void RemoveRange(CompoCompu entities)
-    {
-        _context.Set<CompoCompu>().RemoveRange(entities);
-    }
-    public IEnumerable<CompoCompu> Find(Expression<Func<CompoCompu, bool>> expression)
-    {
-        return _context.Set<CompoCompu>().Where(expression); 
+        var query = _context.CompoCompus as IQueryable<CompoCompu>;
+        var totalRegistros = await query.CountAsync();
+        var registros = await query
+            .Skip((pageIndex - 1) * pageSize)
+            .Take(pageSize)
+            .ToListAsync();
+        return (totalRegistros, registros);
     }
 }

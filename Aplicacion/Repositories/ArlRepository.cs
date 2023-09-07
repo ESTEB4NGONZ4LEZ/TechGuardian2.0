@@ -8,7 +8,6 @@ namespace Aplicacion.Repositories;
 
 public class ArlRepository : GenericRepository<Arl>, IArl
 {
-    private readonly MainContext _context;
     public ArlRepository(MainContext context) : base(context)
     {
     }

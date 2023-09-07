@@ -11,7 +11,6 @@ public interface IUnitOfWork
     IComponente Componentes { get; }
     IComputador Computadores { get; }
     IDepartamento Departamentos { get; }
-    IDireccion Direcciones  { get; }
     IEps Eps { get; }
     IEstado Estados { get; }
     IInsidencia Insidencias { get; }
@@ -23,6 +22,7 @@ public interface IUnitOfWork
     ITipoEmail TipoEmails { get; }
     ITipoInsidencia TipoInsidencias { get; }
     ITipoTelefono TipoTelefonos { get; }
+    IUsuario Usuarios { get; }
     Task<int> SaveAsync();
 }
 

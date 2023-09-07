@@ -194,46 +194,6 @@ namespace Persistencia.Data.Migrations
                     b.ToTable("departamento", (string)null);
                 });
 
-            modelBuilder.Entity("Dominio.Entities.Direccion", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<string>("Barrio")
-                        .HasMaxLength(50)
-                        .HasColumnType("varchar(50)");
-
-                    b.Property<string>("Calle")
-                        .HasMaxLength(10)
-                        .HasColumnType("varchar(10)");
-
-                    b.Property<string>("Carrera")
-                        .HasMaxLength(10)
-                        .HasColumnType("varchar(10)");
-
-                    b.Property<string>("Detalle")
-                        .HasMaxLength(255)
-                        .HasColumnType("varchar(255)");
-
-                    b.Property<string>("Diagonal")
-                        .HasMaxLength(10)
-                        .HasColumnType("varchar(10)");
-
-                    b.Property<int>("Id_persona")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Numero")
-                        .HasMaxLength(10)
-                        .HasColumnType("varchar(10)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("Id_persona");
-
-                    b.ToTable("direccion", (string)null);
-                });
-
             modelBuilder.Entity("Dominio.Entities.Eps", b =>
                 {
                     b.Property<int>("Id")
@@ -388,6 +348,11 @@ namespace Persistencia.Data.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("varchar(50)");
 
+                    b.Property<string>("Direccion")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("varchar(200)");
+
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasMaxLength(50)
@@ -403,9 +368,6 @@ namespace Persistencia.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<int>("Id_lugar")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Id_rol")
                         .HasColumnType("int");
 
                     b.Property<int>("Id_tipo_documento")
@@ -436,8 +398,6 @@ namespace Persistencia.Data.Migrations
                     b.HasIndex("Id_eps");
 
                     b.HasIndex("Id_lugar");
-
-                    b.HasIndex("Id_rol");
 
                     b.HasIndex("Id_tipo_documento");
 
@@ -551,6 +511,38 @@ namespace Persistencia.Data.Migrations
                     b.ToTable("tipo_telefono", (string)null);
                 });
 
+            modelBuilder.Entity("Dominio.Entities.Usuario", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .IsUnicode(true)
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<int>("IdRol")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .IsUnicode(true)
+                        .HasColumnType("varchar(50)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IdRol");
+
+                    b.ToTable("usuario", (string)null);
+                });
+
             modelBuilder.Entity("Dominio.Entities.Ciudad", b =>
                 {
                     b.HasOne("Dominio.Entities.Departamento", "Departamento")
@@ -601,17 +593,6 @@ namespace Persistencia.Data.Migrations
                         .IsRequired();
 
                     b.Navigation("Pais");
-                });
-
-            modelBuilder.Entity("Dominio.Entities.Direccion", b =>
-                {
-                    b.HasOne("Dominio.Entities.Persona", "Persona")
-                        .WithMany("Direcciones")
-                        .HasForeignKey("Id_persona")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Persona");
                 });
 
             modelBuilder.Entity("Dominio.Entities.Insidencia", b =>
@@ -702,12 +683,6 @@ namespace Persistencia.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Dominio.Entities.Rol", "Rol")
-                        .WithMany("Personas")
-                        .HasForeignKey("Id_rol")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Dominio.Entities.TipoDocumento", "TipoDocumento")
                         .WithMany("Personas")
                         .HasForeignKey("Id_tipo_documento")
@@ -734,13 +709,22 @@ namespace Persistencia.Data.Migrations
 
                     b.Navigation("Lugar");
 
-                    b.Navigation("Rol");
-
                     b.Navigation("TipoDocumento");
 
                     b.Navigation("TipoEmail");
 
                     b.Navigation("TipoTelefono");
+                });
+
+            modelBuilder.Entity("Dominio.Entities.Usuario", b =>
+                {
+                    b.HasOne("Dominio.Entities.Rol", "Roles")
+                        .WithMany("Usuarios")
+                        .HasForeignKey("IdRol")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Roles");
                 });
 
             modelBuilder.Entity("Dominio.Entities.Area", b =>
@@ -806,14 +790,12 @@ namespace Persistencia.Data.Migrations
 
             modelBuilder.Entity("Dominio.Entities.Persona", b =>
                 {
-                    b.Navigation("Direcciones");
-
                     b.Navigation("Insidencias");
                 });
 
             modelBuilder.Entity("Dominio.Entities.Rol", b =>
                 {
-                    b.Navigation("Personas");
+                    b.Navigation("Usuarios");
                 });
 
             modelBuilder.Entity("Dominio.Entities.TipoDocumento", b =>

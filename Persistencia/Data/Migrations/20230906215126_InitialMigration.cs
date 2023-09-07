@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Persistencia.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class InicialMigrations : Migration
+    public partial class InitialMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -272,6 +272,32 @@ namespace Persistencia.Data.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
+                name: "usuario",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    Username = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Email = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Password = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    IdRol = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_usuario", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_usuario_rol_IdRol",
+                        column: x => x.IdRol,
+                        principalTable: "rol",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
                 name: "computador",
                 columns: table => new
                 {
@@ -355,14 +381,15 @@ namespace Persistencia.Data.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Email = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
+                    Direccion = table.Column<string>(type: "varchar(200)", maxLength: 200, nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
                     Id_ciudad = table.Column<int>(type: "int", nullable: false),
                     Id_eps = table.Column<int>(type: "int", nullable: false),
                     Id_arl = table.Column<int>(type: "int", nullable: false),
                     Id_tipo_telefono = table.Column<int>(type: "int", nullable: false),
                     Id_tipo_email = table.Column<int>(type: "int", nullable: false),
                     Id_lugar = table.Column<int>(type: "int", nullable: false),
-                    Id_tipo_documento = table.Column<int>(type: "int", nullable: false),
-                    Id_rol = table.Column<int>(type: "int", nullable: false)
+                    Id_tipo_documento = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -392,12 +419,6 @@ namespace Persistencia.Data.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_persona_rol_Id_rol",
-                        column: x => x.Id_rol,
-                        principalTable: "rol",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
                         name: "FK_persona_tipo_docuemento_Id_tipo_documento",
                         column: x => x.Id_tipo_documento,
                         principalTable: "tipo_docuemento",
@@ -413,38 +434,6 @@ namespace Persistencia.Data.Migrations
                         name: "FK_persona_tipo_telefono_Id_tipo_telefono",
                         column: x => x.Id_tipo_telefono,
                         principalTable: "tipo_telefono",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                })
-                .Annotation("MySql:CharSet", "utf8mb4");
-
-            migrationBuilder.CreateTable(
-                name: "direccion",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    Id_persona = table.Column<int>(type: "int", nullable: false),
-                    Calle = table.Column<string>(type: "varchar(10)", maxLength: 10, nullable: true)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    Carrera = table.Column<string>(type: "varchar(10)", maxLength: 10, nullable: true)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    Numero = table.Column<string>(type: "varchar(10)", maxLength: 10, nullable: true)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    Diagonal = table.Column<string>(type: "varchar(10)", maxLength: 10, nullable: true)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    Barrio = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: true)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    Detalle = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: true)
-                        .Annotation("MySql:CharSet", "utf8mb4")
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_direccion", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_direccion_persona_Id_persona",
-                        column: x => x.Id_persona,
-                        principalTable: "persona",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 })
@@ -529,11 +518,6 @@ namespace Persistencia.Data.Migrations
                 column: "Id_pais");
 
             migrationBuilder.CreateIndex(
-                name: "IX_direccion_Id_persona",
-                table: "direccion",
-                column: "Id_persona");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_insidencia_Id_categoria",
                 table: "insidencia",
                 column: "Id_categoria");
@@ -589,11 +573,6 @@ namespace Persistencia.Data.Migrations
                 column: "Id_lugar");
 
             migrationBuilder.CreateIndex(
-                name: "IX_persona_Id_rol",
-                table: "persona",
-                column: "Id_rol");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_persona_Id_tipo_documento",
                 table: "persona",
                 column: "Id_tipo_documento");
@@ -607,6 +586,11 @@ namespace Persistencia.Data.Migrations
                 name: "IX_persona_Id_tipo_telefono",
                 table: "persona",
                 column: "Id_tipo_telefono");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_usuario_IdRol",
+                table: "usuario",
+                column: "IdRol");
         }
 
         /// <inheritdoc />
@@ -616,10 +600,10 @@ namespace Persistencia.Data.Migrations
                 name: "compo_compu");
 
             migrationBuilder.DropTable(
-                name: "direccion");
+                name: "insidencia");
 
             migrationBuilder.DropTable(
-                name: "insidencia");
+                name: "usuario");
 
             migrationBuilder.DropTable(
                 name: "componente");
@@ -640,6 +624,9 @@ namespace Persistencia.Data.Migrations
                 name: "tipo_insidencia");
 
             migrationBuilder.DropTable(
+                name: "rol");
+
+            migrationBuilder.DropTable(
                 name: "arl");
 
             migrationBuilder.DropTable(
@@ -650,9 +637,6 @@ namespace Persistencia.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "lugar");
-
-            migrationBuilder.DropTable(
-                name: "rol");
 
             migrationBuilder.DropTable(
                 name: "tipo_docuemento");

@@ -8,7 +8,6 @@ namespace Aplicacion.Repositories;
 
 public class RolRepository : GenericRepository<Rol>, IRol
 {
-    private readonly MainContext _context;
     public RolRepository(MainContext context) : base(context)
     {
     }
@@ -19,5 +18,21 @@ public class RolRepository : GenericRepository<Rol>, IRol
     public override async Task<Rol> GetByIdAsync(int id)
     {
         return await _context.Roles.FindAsync(id);
+    }
+
+    public int GetRolIdByName(string rol)
+    {
+        return _context.Roles
+                       .Where(x => x.Nombre == rol)
+                       .Select(x => x.Id)
+                       .FirstOrDefault();
+    }
+
+    public string GetRolNameById(Usuario usuario)
+    {
+        return _context.Roles
+                       .Where(x => x.Id == usuario.IdRol)
+                       .Select(x => x.Nombre)
+                       .FirstOrDefault();
     }
 }

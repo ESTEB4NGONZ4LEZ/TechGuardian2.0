@@ -8,7 +8,6 @@ namespace Aplicacion.Repositories;
 
 public class TipoDocumentoRepository : GenericRepository<TipoDocumento>, ITipoDocumento
 {
-    private readonly MainContext _context;
     public TipoDocumentoRepository(MainContext context) : base(context)
     {
     }

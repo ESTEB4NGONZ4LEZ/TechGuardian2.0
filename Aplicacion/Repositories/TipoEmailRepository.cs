@@ -8,7 +8,6 @@ namespace Aplicacion.Repositories;
 
 public class TipoEmailRepository : GenericRepository<TipoEmail>, ITipoEmail
 {
-    private readonly MainContext _context;
     public TipoEmailRepository(MainContext context) : base(context)
     {
     }

@@ -18,7 +18,6 @@ public class MainContext : DbContext
     public DbSet<Componente> Componentes { get; set; }
     public DbSet<Computador> Computadores { get; set; }
     public DbSet<Departamento> Departamentos { get; set; }
-    public DbSet<Direccion> Direcciones { get; set; }
     public DbSet<Eps> Eps { get; set; }
     public DbSet<Estado> Estados { get; set; }
     public DbSet<Insidencia> Insidencias { get; set; }
@@ -30,6 +29,7 @@ public class MainContext : DbContext
     public DbSet<TipoEmail> TipoEmails { get; set; }
     public DbSet<TipoInsidencia> TipoInsidencias { get; set; }
     public DbSet<TipoTelefono> TipoTelefonos { get; set; }
+    public DbSet<Usuario> Usuarios { get; set; }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<CompoCompu>().HasKey(x => new { x.Id_computador, x.Id_tipo_componente});
